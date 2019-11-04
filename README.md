@@ -16,6 +16,7 @@ templateType(模板类型)，有四种模板可选：
  - h5
 
  projectName(项目名称)，基于当前命令执行路径，并将模板拷贝到这个项目文件夹下
+ 
  例如：create-czty-admin czty-admin projectName
 
  options(可选参数)：
