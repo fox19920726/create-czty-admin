@@ -6,7 +6,7 @@ npm install create-czty-admin -g
 
 create-czty-admin [options] ***templateType*** ***projectName***
 
-templateType(模板类型)，有四种模板可选：  
+templateType(模板类型)，有以下模板可选：  
 
  - react
  - czty-admin（可用）(通用管理后台)
