@@ -12,7 +12,9 @@ const excute = require('./src/index');
 // 四种模板。对应git仓库四个仓库地址
 const tempIndex = {
   react: 'reactTemplate', // react 模板
-  vue: 'czty-admin', // vue 模板
+  admin: 'czty-admin', // vue 模板
+  data: 'czty-data', // vue 模板
+  dataGd: 'czty-dataGd', // vue 模板
   h5: 'h5Template', // h5模板
   dva: 'dvaTemplate', // dva模板
 };
