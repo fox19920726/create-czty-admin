@@ -1,6 +1,6 @@
 ## create-czty-admin ##
-一个简易的脚手架，一键创建一个简易的vue项目；
-使用了ES7语法，且未编译，所以node版本为8最好
+简易脚手架，一键创建项目，node版本要求为8
+
 ## 操作指南 ##
 npm install create-czty-admin -g  
 
@@ -9,7 +9,9 @@ create-czty-admin [options] ***templateType*** ***projectName***
 templateType(模板类型)，有四种模板可选：  
 
  - react
- - vue（当前仅该项可用）
+ - czty-admin（可用）
+ - czty-data（可用）
+ - czty-dataGd（可用）
  - dva
  - h5
 

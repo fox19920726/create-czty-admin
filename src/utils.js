@@ -13,10 +13,10 @@ function isWindows() {
 
 function downloadByGit(callback, template) {
   console.log(green('start download'));
-  console.log(`https://github.com/fox19920726/${template}.git`);
+  console.log(`git@192.168.150.34:${template}.git`);
   const result = spawn(
     'git',
-    ['clone', `https://github.com/fox19920726/${template}.git`],
+    ['clone', `git@192.168.150.34:${template}.git`],
     { stdio: 'inherit' }
   );
   const error = result.error;
