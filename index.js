@@ -15,7 +15,7 @@ const tempIndex = {
   admin: 'czty-admin', // vue 模板
   data: 'czty-data', // vue 模板
   dataGd: 'czty-dataGd', // vue 模板
-  topo: 'czty-admin-topo-component' // topo组件模版
+  topo: 'czty-admin-topo-component', // topo组件模版
   h5: 'czty-h5', // h5模板
   dva: 'dvaTemplate', // dva模板
 };
