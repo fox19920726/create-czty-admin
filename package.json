@@ -9,21 +9,19 @@
   "bin": {
     "create-czty-admin": "./index.js"
   },
-  "publishConfig" : {
-    "registry" : "http://192.168.150.186:11111/repository/npm-internal/"
+  "publishConfig": {
+    "registry": "http://192.168.150.186:11111/repository/npm-internal/"
   },
   "keywords": [],
   "author": "Jin",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^1.1.3",
-    "cross-spawn": "^5.1.0",
-    "fs-extra": "^7.0.0",
-    "commander": "2.18.0"
+    "chalk": "^4.1.0",
+    "commander": "^6.2.1",
+    "cross-spawn": "^7.0.3",
+    "fs-extra": "^9.0.1"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2017": "^6.24.1",
-    "commander": "^2.18.0"
+    "@babel/preset-env": "^7.12.11"
   }
 }

@@ -8,13 +8,9 @@ create-czty-admin [options] ***templateType*** ***projectName***
 
 templateType(模板类型)，有以下模板可选：  
 
- - react
  - admin（可用）(通用管理后台)
- - data（可用）（包含百度地图的通用管理后台）
- - dataGd（可用）（包含高德地图的通用管理后台）
  - topo （可用）（包含拓扑组件的通用管理后台）
- - dva
- - h5
+ - h5 (可用)
 
  projectName(项目名称)，基于当前命令执行路径，并将模板拷贝到这个项目文件夹下
  

@@ -59,7 +59,7 @@ async function create(temp, project, force = false) {
   forceDel = force;
   const file = currentPath + projectName;
   try {
-    // 检测项目文件夹是否已存在， 若存在，抛出错误
+    // 检测项目文件夹是否已存在， 若存在，判断命令类型，-f就删除后重新下载，否则单纯文字提示
     const res = await fs.pathExists(file);
     if (res) {
       if (forceDel) {
@@ -68,7 +68,6 @@ async function create(temp, project, force = false) {
         downloadByGit(renameFile, tempName);
       } else {
         console.log(chalk.red('Error, In this directory, the project name already exsits !'));
-        console.log(chalk.green('you can use option -f to force delete the directory !'));
       }
       return;
     }
