@@ -7,7 +7,9 @@
 const { Command } = require('commander')
 const chalk = require('chalk')
 const packageJson = require('./package.json')
-const excute = require('./src/index')
+const { create, clear, addList } = require('./src/index')
+
+const { green, red } = chalk
 
 // 四种模板。对应git仓库四个仓库地址
 const tempIndex = {
@@ -22,19 +24,33 @@ let templateName = ''
 let inputIndex = ''
 const program = new Command()
 
-program
+program  
   .version(`v${packageJson.version}`, '-v, --version')
-
-program  
-  .option('-d, --delete [projectName]', 'delete the exist director')
-
-program  
-  // .option('-d, --directly [templateName, projectName]', 'copy the not specified template')
-  .description('create-czty-admin admin myProject')
+  .option('-r, --remove <projectName>', 'remove the exist director')
+  .option('-d, --directly <templateName> <projectName>', 'downold the template')
+  .option('-ctl --ctl', 'create table list module')
+  // .option('-cal --cal', 'create auto list module')
+  .description('Example: create-czty-admin admin myProject')
   .action((options) => {
-    const [index, name] = options.args
-
+    const { remove, directly, rawArgs, args, ctl, cal } = options
+    const [, , , index, name] = rawArgs
     inputIndex = index
+
+    if (ctl) {
+      addList('ctl')
+      console.log(green('success'))
+      return
+    }
+
+    if (remove) {
+      clear(remove)
+      return
+    }
+    if (!args.length) {
+      console.log(red('syntax error'))
+      program.help()
+      return
+    }
     // 允许目标项目名和要复制的模板类型名顺序颠倒
     if (tempIndex[index] || tempIndex[name]) {
       if (tempIndex[index]) {
@@ -45,31 +61,7 @@ program
         projectName = index
       }
     }
-    if (program.directly) {
-      templateName = index
-    }
+    create(templateName, projectName, program.directly)
   })
 
-program
-  .option('-ctl --createTableList', '22')
-  .option('-cal --createAutoList', '33')
-
 program.parse(process.argv)
-
-const [, , type] = program.rawArgs
-const notType = type !== '-ctl' &&  type !== '-cal' 
-
-console.log('3222:', program)
-
-if (notType) {
-  if (program.args.length === 0) {
-    console.log(chalk.red('syntax error'))
-    program.help()
-  }
-  if (templateName) {
-    excute(templateName, projectName, program.force)
-    return
-  }
-  console.log(`the template ${inputIndex} you want download do not exist`)
-}
-

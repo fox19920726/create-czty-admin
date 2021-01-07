@@ -1,36 +1,36 @@
-const crossSpawn = require('cross-spawn');
-const spawn = crossSpawn.sync;
-const chalk = require('chalk');
-const red = chalk.red;
-const green = chalk.green;
+const crossSpawn = require('cross-spawn')
+const spawn = crossSpawn.sync
+const chalk = require('chalk')
+const red = chalk.red
+const green = chalk.green
 
 function isWindows() {
   if (typeof process === 'undefined' || !process) {
-    return false;
+    return false
   }
-  return process.platform === 'win32' || process.env.OSTYPE === 'cygwin' || process.env.OSTYPE === 'msys';
+  return process.platform === 'win32' || process.env.OSTYPE === 'cygwin' || process.env.OSTYPE === 'msys'
 }
 
 function downloadByGit(callback, template) {
-  console.log(green('start download'));
-  console.log(`git@192.168.150.34:${template}.git`);
+  console.log(green('start download'))
+  console.log(`git@192.168.150.34:${template}.git`)
   const result = spawn(
     'git',
     ['clone', `git@192.168.150.34:${template}.git`],
     { stdio: 'inherit' }
-  );
-  const error = result.error;
+  )
+  const error = result.error
   if (error) {
-    console.log(red(error));
-    return;
+    console.log(red(error))
+    return
   }
-  callback && callback();
+  callback && callback()
 }
-const currentPath = process.cwd().replace(/\\/g, '/') + '/';
+const currentPath = process.cwd().replace(/\\/g, '/') + '/'
 
 
 module.exports = {
   downloadByGit,
   isWindows,
   currentPath,
-};
+}
