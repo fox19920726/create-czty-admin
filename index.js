@@ -33,7 +33,7 @@ program
   .description('Example: create-czty-admin admin myProject')
   .action((options) => {
     const { remove, directly, rawArgs, args, ctl, cal } = options
-    const [, , , index, name] = rawArgs
+    const [, , index, name] = rawArgs
     inputIndex = index
 
     if (ctl) {
@@ -51,6 +51,7 @@ program
       program.help()
       return
     }
+
     // 允许目标项目名和要复制的模板类型名顺序颠倒
     if (tempIndex[index] || tempIndex[name]) {
       if (tempIndex[index]) {
@@ -61,7 +62,8 @@ program
         projectName = index
       }
     }
-    create(templateName, projectName, program.directly)
+
+    create(templateName, projectName)
   })
 
 program.parse(process.argv)
