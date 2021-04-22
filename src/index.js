@@ -119,8 +119,8 @@ async function addList(type) {
     downloadByGit(renameFile, 'czty-admin')
     // 下载完毕后，在项目目录view目录下新建demo目录，并且把vue文件放进去，再到api目录把api-demo.js放进去
     await createFolder()
-    await removeFile('aaa/src/views/topo/topo.vue', 'src/views/demo/topo.vue')
-    await removeFile('aaa/src/api/api.js', 'src/api/demo/api.js')
+    await removeFile('aaa/src/views/demo/list.vue', 'src/views/demo/list.vue')
+    await removeFile('aaa/src/api/demo/demo.js', 'src/api/demo/demo.js')
     console.log(green('Add the module success'))
     clear('aaa')
   } catch (err) {
