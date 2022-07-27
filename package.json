@@ -9,9 +9,7 @@
   "bin": {
     "create-czty-admin": "./index.js"
   },
-  "publishConfig": {
-    "registry": "http://192.168.150.186:11111/repository/npm-internal/"
-  },
+ 
   "aaa": 1,
   "keywords": [],
   "author": "Jin",
